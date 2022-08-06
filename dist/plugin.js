@@ -1,4 +1,4 @@
-exports.version = 1
+exports.version = 1.01
 exports.apiRequired = 1
 exports.repo = "rejetto/max-downloads-ip"
 exports.description = "Limit number of simultaneous downloads per IP address"
@@ -39,8 +39,9 @@ exports.init = api => {
                 const { ip } = ctx
                 const n = 1 + (countByIp[ip] || 0) // keep track
                 if (n > api.getConfig('limit')) {
+                    ctx.body = ''
                     ctx.status = 429
-                    return true
+                    return
                 }
                 countByIp[ip] = n
                 watchForEnd(ctx)
