@@ -1,4 +1,4 @@
-exports.version = 1.02
+exports.version = 1.03
 exports.apiRequired = 1
 exports.repo = "rejetto/max-downloads-ip"
 exports.description = "Limit number of simultaneous downloads per IP address"
@@ -7,7 +7,7 @@ exports.config = {
     limit: { type: 'number', min: 1, placeholder: "no limit" }
 }
 exports.configDialog = {
-    maxWidth: '27em'
+    sx: { maxWidth: '20em' }
 }
 
 exports.init = api => {
